@@ -1,0 +1,47 @@
+<div id="clients">
+  <br>
+    <div class="panel panel-primary text-center">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Listado de Clientes</div>
+
+      <!-- Table -->
+      <table class="table table-bordered table-condensed">
+        <thead >
+        <tr>
+        <th class="text-center info"><%= "Nombre"%></th>
+        <th class="text-center info"><%= "Apellido"%></th>
+        <th class="text-center info"><%= "CUIT"%></th>
+        <th class="text-center info"><%= "Dirección"%></th>
+        <th class="text-center info">Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+          <% @clients.each do |client| %>
+            <tr>
+              <td><%= client.name %></td>
+              <td><%= client.lastname %></td>
+              <td><%= client.cuit %></td>
+              <td><%= client.address %></td>
+              <td>
+                <div class="btn-group">
+                  <%= link_to 'Ver', client ,:class=>"btn btn-default btn-xs"%>
+                  <%= link_to 'Editar', edit_client_path(client),:class=>"btn btn-default  btn-xs" %>
+                  <%= link_to 'Eliminar', client, method: :delete, data: { confirm: '¿Está seguro que desea eliminar el Cliente?' },:class=>"btn  btn-default  btn-xs" %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+        
+
+
+      </table>
+
+    </div>
+    <div class="text-center">
+      <%= paginate @clients %>
+    </div>
+
+    <br>
+</div>

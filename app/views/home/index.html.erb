@@ -1,0 +1,11 @@
+
+<div class="jumbotron text-center">
+	<% if user_signed_in? %>
+		<p>Ahora puede empezar el recorrido por su página de usuario.</p>
+	<% else %>
+		<h1>Bienvenido</h1>
+		<a class="btn btn-lg btn-success" href="/users/sign_in" role="button">Ingresar al sistema</a>
+	<% end%>
+	
+	
+</div>

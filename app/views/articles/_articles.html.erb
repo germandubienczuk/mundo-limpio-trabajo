@@ -1,0 +1,55 @@
+  <div id="articles">
+    <br>
+      <div class="panel panel-primary text-center">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Listado de Articulos</div>
+
+        <!-- Table -->
+        <table class="table table-bordered table-condensed">
+          <thead >
+          <tr>
+
+          <th class="text-center info"><%= "Codigo Barras" %></th>
+          <th class="text-center info"><%= "Descripción" %></th>
+          <th class="text-center info"><%= "Precio Costo" %></th>
+          <th class="text-center info"><%= "Precio Contado" %></th>
+          <th class="text-center info"><%= "Precio Tarjeta" %></th>
+          <th class="text-center info"><%= "Categoria" %></th>
+
+          <th class="text-center info">Acciones</th>
+          </tr>
+          </thead>
+
+          <tbody>
+            <% @articles.each do |article| %>
+              <tr>
+                <td><%= article.bar_code %></td>
+                <td><%= article.description %></td>
+                <td>$ <%= number_with_precision(article.price_cost, :precision => 2, :separator => '.') %></td>
+                <td>$ <%= number_with_precision(article.price, :precision => 2, :separator => '.') %></td>
+                <td>$ <%= number_with_precision(article.price_card, :precision => 2, :separator => '.') %></td>
+                <td><%= article.category.name %></td>
+                
+                <td>
+                  <div class="btn-group">
+                    <%= link_to 'Ver', article ,:class=>"btn btn-default btn-xs"%>
+                    <%= link_to 'Editar', edit_article_path(article),:class=>"btn btn-default  btn-xs" %>
+                    <%= link_to 'Eliminar', article, method: :delete, data: { confirm: '¿Está seguro que desea eliminar el Articulo?' },:class=>"btn  btn-default  btn-xs" %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+          
+
+
+        </table>
+
+      </div>
+      <div class="text-center">
+        <%= paginate @articles %>
+      </div>
+
+      <br>
+  </div>
+

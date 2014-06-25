@@ -1,0 +1,25 @@
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, :html => {:class => 'form-signin' }) do |f| %>
+  <h2 class="form-signin-heading text-center">Configuración de Usuario</h2>
+  <hr>
+  <%= devise_error_messages! %>
+
+  <%= f.password_field :password, autocomplete: "off" , class: "form-control", placeholder: "Nueva Contraseña"%>
+
+  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Repetir Contraseña" %>
+
+  <%= f.password_field :current_password, autocomplete: "off" , class: "form-control", placeholder: "Contraseña Actual"%>
+  
+  <p><%= f.submit "Guardar Cambios", class: "btn btn-lg btn-primary btn-block" %></p>
+  
+  <p><%= link_to "Volver", :back , class: "btn btn-lg btn-info btn-block"%></p>
+  
+<% end %>
+
+<form class = "form-signin" >
+  <h2 class="form-signin-heading text-center">Cancelación de Cuenta</h2>
+  <hr>
+  <p><%= button_to "Cancelar mi usuario", registration_path(resource_name), data: { confirm: "¿Está seguro que desea cerrar su cuenta?" }, method: :delete , class: "btn btn-lg btn-danger btn-block" %></p>
+  
+</form>

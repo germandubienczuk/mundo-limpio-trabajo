@@ -1,0 +1,20 @@
+es:
+    activerecord:
+        attributes:
+            supplier:
+                name: "Nombre"
+            client:
+                name: "Nombre"
+                lastname: "Apellido"
+                cuit: "CUIT"
+                address: "Dirección"
+                phone: "Telefono"
+            article:
+                description: "Descripción"
+                price: "Precio de Contado"
+                price_cost: "Precio de Costo"
+                price_card: "Precio con Tarjeta"
+                category_id: "Id de Categoria"
+                bar_code: "Codigo de Barras"
+            category:
+                name: "Nombre"

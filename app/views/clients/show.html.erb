@@ -1,0 +1,42 @@
+
+<form class="form-horizontal">
+  <fieldset>
+  <legend><h1 class="text-center"><%= @legend %></h1></legend>
+  <div class="form-group">
+    <label class="col-md-4"></label>
+    <div class="col-md-4">
+    	<strong>Name:</strong>
+  		<%= @client.name %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4"></label>
+    <div class="col-md-4">
+    	<strong>Lastname:</strong>
+  		<%= @client.lastname %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4"></label>
+    <div class="col-md-4">
+    	<strong>Cuit:</strong>
+  		<%= @client.cuit %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4"></label>
+    <div class="col-md-4">
+    	<strong>Address:</strong>
+  		<%= @client.address %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="btn"></label>
+    <div class="col-md-4">
+	    <br><br>
+	    <%= link_to 'Editar', edit_client_path(@client) ,:class=>"btn btn-lg btn-primary  btn-block" %>
+		<%= link_to 'Volver', clients_path ,:class=>"btn btn-lg btn-primary btn-block" %>
+    </div>
+  </div>
+  <fieldset>
+</form>

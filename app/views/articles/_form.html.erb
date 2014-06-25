@@ -1,0 +1,76 @@
+<%= form_for(@article, html: { class: "form-horizontal" }) do |f| %>
+
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        Error
+      </div>
+      <% @article.errors.full_messages.each do |msg| %>
+        <div class="alert">* <%= msg %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <fieldset>
+  <legend><h1 class="text-center"><%= @legend %></h1></legend>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label"></label>  
+    <div class="col-md-4">
+    <%= f.text_field :bar_code, class: "form-control input-md", placeholder: "Codigo de Barras" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label"></label>  
+    <div class="col-md-4">
+    <%= f.text_field :description, autofocus: true, class: "form-control input-md", placeholder: "Descripcion" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">$</label>  
+    <div class="col-md-4">
+    <%= f.text_field :price_cost, :value => number_with_precision(@article.price_cost, :precision => 2, :separator => '.'), class: "form-control input-md", placeholder: "Precio de Costo"%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">$</label>  
+    <div class="col-md-4">
+    <%= f.text_field :price, :value => number_with_precision(@article.price, :precision => 2, :separator => '.'), class: "form-control input-md", placeholder: "Precio Contado" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">$</label>  
+    <div class="col-md-4">
+    <%= f.text_field :price_card, :value => number_with_precision(@article.price_card, :precision => 2, :separator => '.'),  class: "form-control input-md", placeholder: "Precio con Tarjeta" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-4 control-label"></div>  
+    <div class="col-md-4">
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: false}, {class: "form-control input-md"} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-4 control-label"></div>  
+    <div class="col-md-4">
+    <%= link_to 'Agregar Categoria', new_category_path ,:class=> "btn btn-md btn-primary btn-block"%>
+    </div>
+  </div>
+  
+  <!-- Button -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="btn"></label>
+    <div class="col-md-4">
+      <br><br>
+      <%= f.submit "Guardar", class: "btn btn-lg btn-primary  btn-block"%>
+      <%= link_to 'Volver', articles_path ,:class=> "btn btn-lg btn-primary btn-block"%>
+    </div>
+  </div>
+
+  <fieldset>
+<% end %>

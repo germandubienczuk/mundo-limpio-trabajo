@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <%= render :partial => 'partials/headhtml' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-default" role="navigation">
+      <div class="container-fluid">
+        
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Esconder</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://localhost:3000">Mundo Limpio</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+
+            <% unless current_user.nil? %>
+                <% if current_user.admin? %>
+                  <%= render :partial => 'partials/adminbar' %> 
+                <% else %>
+                  <%= render :partial => 'partials/userbar' %>
+                <% end %> 
+              <% else %>
+            <% end %> 
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+        
+        <%= bootstrap_flash %>
+        <%= yield %>
+
+        <footer class="text-center text-muted">
+          <p>&copy; Germán Dubienczuk 2014</p>
+        </footer>
+
+    </div>
+  </body>
+</html>
+
+

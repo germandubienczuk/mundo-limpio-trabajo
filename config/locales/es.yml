@@ -1,0 +1,15 @@
+es:
+   hello: Hola mundo
+   supplier: Proveedor
+   name: Nombre
+   lastname: Apellido
+   user: Usuario
+   username: Nombre de Usuario
+   password: Contraseña
+   views:
+    pagination:
+      previous: "&lt; Anterior"
+      next: "Siguiente &gt;"
+      truncate: "..."
+      last: "Ultimo"
+      first: "Primero"
